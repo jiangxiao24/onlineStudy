@@ -1,0 +1,41 @@
+{% load my_tag %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板参数</title>
+</head>
+<body>
+<h1>Template</h1>
+<p>{{ s2.name }}</p>
+{% if False %}
+<p>{{ s2.sex }}</p>
+{% else %}
+<p>{{ s2.name}}</p>
+{% endif %}
+{% for i in s1 %}
+<p>{{ i }}</p>
+{% endfor %}
+{% for i in s1 %}
+<p>{{ forloop.counter }}:{{ i }}</p>
+{% endfor %}
+<p>{{ s2.name|upper }}</p>
+<p>{{ s2.name|lower }}</p>
+<p>{{ s2.name|first|upper }}</p>
+<p>{{ s3|add:5 }}</p>
+<p>{{ s4|safe}}</p>
+{% autoescape off%}
+<p>{{ s4}}</p>
+{% endautoescape%}
+<form action="localhost:8000/blog/index/" method="post">
+    <input type="text" name="user">
+    <input type="submit" name="submit">
+    {% csrf_token %}
+</form>
+{% verbatim %}
+{{ name }}
+{% endverbatim %}
+{% my_add 10 %}
+</body>
+</html>
