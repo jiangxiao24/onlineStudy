@@ -20,3 +20,4 @@
 2019-01-31 18:07:11,086 - transaction - INFO - 我是一条记录 -line:-32
 2019-01-31 18:07:11,087 - transaction - INFO - xiaoming账户还款800,可用额度为:16600.0 -line:-51
 2019-01-31 18:07:11,088 - transaction - INFO - xiaoming账户消费200 -line:-103
+2019-01-31 20:20:49,786 - transaction - INFO - 我是一条记录 -line:-32
