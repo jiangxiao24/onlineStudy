@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import djcelery
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +30,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#启动celery
+djcelery.setup_loader()
+BROKER_URL= 'amqp://guest@localhost//'
+CELERY_RESULT_BACKEND = 'amqp://guest@localhost//'
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +151,21 @@ STATIC_URL = '/static/'  # 这个名字在html里边用
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'statics'),
 )
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console':{
+#             'level':'DEBUG',
+#             'class':'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#             'level':'DEBUG',
+#         },
+#     }
+# }

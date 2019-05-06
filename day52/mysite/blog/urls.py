@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'req_property/',views.req_property),
     url(r'current/',views.current_time),
     url(r'index/', views.template_content),
-    url(r'show',views.show)
+    url(r'show',views.show),
+    url(r'authordetail',views.AuthorsDetail.as_view())
 ]
